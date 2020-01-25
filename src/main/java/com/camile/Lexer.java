@@ -24,6 +24,9 @@ public class Lexer {
         reader = new LineNumberReader(r);
     }
 
+    /**
+     * 读取字符串
+     * */
     public Token read() throws ParseException {
         if (fillQueue(0)) {
             return queue.remove(0);
@@ -32,6 +35,10 @@ public class Lexer {
         }
     }
 
+    /**
+     * 预读。
+     * 一般用来配合read来获取上下文
+     * */
     public Token peek(int i) throws ParseException {
         if (fillQueue(i)) {
             return queue.get(i);
@@ -81,8 +88,10 @@ public class Lexer {
 
     protected void addToken(int lineNo, Matcher matcher) {
         String m = matcher.group(1);
-        if (m != null) // if not a space
-            if (matcher.group(2) == null) { // if not a comment
+        // if not a space
+        if (m != null) {
+            // if not a comment
+            if (matcher.group(2) == null) {
                 Token token;
                 if (matcher.group(3) != null) {
                     token = new NumToken(lineNo, Integer.parseInt(m));
@@ -93,6 +102,7 @@ public class Lexer {
                 }
                 queue.add(token);
             }
+        }
     }
 
     protected String toStringLiteral(String s) {
@@ -114,6 +124,9 @@ public class Lexer {
         return sb.toString();
     }
 
+    /**
+     * 整型字面量
+     */
     protected static class NumToken extends Token {
         private int value;
 
@@ -138,6 +151,9 @@ public class Lexer {
         }
     }
 
+    /**
+     * 标识符
+     */
     protected static class IdToken extends Token {
         private String text;
 
@@ -157,6 +173,9 @@ public class Lexer {
         }
     }
 
+    /**
+     * 字符串字面量
+     */
     protected static class StrToken extends Token {
         private String literal;
 
