@@ -1,6 +1,7 @@
 package com.camile.ast;
 
-import com.sun.tools.javac.util.List;
+
+import java.util.List;
 
 public class NegativeExpr extends AbstractList {
     public NegativeExpr(List<AbstractTree> c) {

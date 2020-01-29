@@ -1,6 +1,6 @@
 package com.camile.ast;
 
-import com.sun.tools.javac.util.List;
+import java.util.List;
 
 public class WhileStmnt extends AbstractList {
 
