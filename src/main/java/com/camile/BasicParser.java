@@ -8,6 +8,19 @@ import com.camile.Parser.Operators;
 
 import static com.camile.Parser.rule;
 
+/**
+ * 语法分析器
+ * EBNF（Extended Backus-Naur Form，扩展巴科斯范式）
+ * primary    : "(" expr ")" | NUMBER | IDENTIFIER | STRING         (非终结符 primary（基本构成元素）用于表示括号括起的表达式、整型字面量、标识符（即变量名）或字符串字面量。这些是最基本的表达式构成元素。)
+ * factor     : "-" primary | primary   (非终结符 factor（因子）或表示一个 primary，或表示 primary 之前再添加一个 - 号的组合)
+ * expr       : factor { OP factor }                                (expr（表达式）用于表示两个 factor 之间夹有一个双目运算符的组合)
+ * block      : "{" [ statement ] {(";" | EOL) [ statement ]} "}"   （block（代码块）指的是由 {} 括起来的 statement（语句）序列）
+ * simple     : expr                                (简单表达式语句是仅由表达式（expr）构成的语句)
+ * statement  : "if" expr block [ "else" block ]    (statement 之间需要用分号或换行符（EOL）分隔。由于 Stone 语言支持空语句，因此规则中的 statement 两侧写有中括号 [])
+ *            | "while" expr block
+ *            | simple
+ * program    : [ statement ] (";" | EOL)   (program 既可以是处于代码块之外的一条语句，也可以是一行完整的程序)
+ * */
 public class BasicParser {
     /**
      * 变量名符号
