@@ -26,7 +26,7 @@ public class Lexer {
 
     /**
      * 读取字符串
-     * */
+     */
     public Token read() throws ParseException {
         if (fillQueue(0)) {
             return queue.remove(0);
@@ -38,7 +38,7 @@ public class Lexer {
     /**
      * 预读。
      * 一般用来配合read来获取上下文
-     * */
+     */
     public Token peek(int i) throws ParseException {
         if (fillQueue(i)) {
             return queue.get(i);

@@ -8,7 +8,7 @@ import java.util.Iterator;
 /**
  * 叶节点类。
  * 没有子节点
- * */
+ */
 public class AbstractLeaf extends AbstractTree {
     private static ArrayList<AbstractTree> empty = new ArrayList<AbstractTree>();
     protected Token token;

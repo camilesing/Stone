@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * 非叶节点对象的类。可能包含多个子节点
- * */
+ */
 public class AbstractList extends AbstractTree {
     protected List<AbstractTree> children;
 

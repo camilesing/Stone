@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 操作符节点
- * */
+ */
 public class BinaryExpr extends AbstractList {
     public BinaryExpr(List<AbstractTree> c) {
         super(c);
