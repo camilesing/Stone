@@ -1,5 +1,8 @@
 package com.camile.ast;
 
+import com.camile.Environment;
+import com.camile.exception.StoneException;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -50,5 +53,10 @@ public class AbstractList extends AbstractTree {
             }
         }
         return null;
+    }
+
+    @Override
+    public Object evaluate(Environment e) {
+        throw new StoneException("cannot eval: " + toString());
     }
 }

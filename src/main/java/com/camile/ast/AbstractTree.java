@@ -1,5 +1,7 @@
 package com.camile.ast;
 
+import com.camile.Environment;
+
 import java.util.Iterator;
 
 /**
@@ -22,6 +24,8 @@ public abstract class AbstractTree implements Iterable<AbstractTree> {
     public abstract Iterator<AbstractTree> children();
 
     public abstract String location();
+
+    public abstract Object evaluate(Environment e);
 
     public Iterator<AbstractTree> iterator() {
         return children();

@@ -1,6 +1,8 @@
 package com.camile.ast;
 
+import com.camile.Environment;
 import com.camile.Token;
+import com.camile.exception.StoneException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,6 +42,11 @@ public class AbstractLeaf extends AbstractTree {
     @Override
     public String location() {
         return "at line " + token.getLineNumber();
+    }
+
+    @Override
+    public Object evaluate(Environment e) {
+        throw new StoneException("cannot eval: " + toString());
     }
 
     public Token token() {
