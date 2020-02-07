@@ -316,8 +316,7 @@ public class Parser {
         }
 
         @Override
-        protected void parse(Lexer lexer, List<AbstractTree> res)
-                throws ParseException {
+        protected void parse(Lexer lexer, List<AbstractTree> res) throws ParseException {
             Token t = lexer.read();
             if (t.isIdentifier()) {
                 for (String token : tokens) {

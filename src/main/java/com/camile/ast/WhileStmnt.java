@@ -29,7 +29,7 @@ public class WhileStmnt extends AbstractList {
     public Object evaluate(Environment env) {
         Object result = 0;
         for (; ; ) {
-            Object c = (condition()).evaluate(env);
+            Object c = condition().evaluate(env);
             if (c instanceof Integer && (Integer) c == FALSE) {
                 return result;
             } else {
